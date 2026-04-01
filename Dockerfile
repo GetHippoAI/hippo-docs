@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+ARG CACHE_BUST=1
 RUN npm run build
 
 # Production stage - serve static files with nginx
