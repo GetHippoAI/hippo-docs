@@ -28,17 +28,6 @@ const sidebars: SidebarsConfig = {
         'api/rest-endpoints',
       ],
     },
-    {
-      type: 'category',
-      label: 'Official Plugins',
-      items: [
-        'official-plugins/google-calendar',
-        'official-plugins/gmail',
-        'official-plugins/price-tracker',
-        'official-plugins/weather',
-        'official-plugins/social-media',
-      ],
-    },
   ],
 };
 
