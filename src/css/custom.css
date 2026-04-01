@@ -1,10 +1,10 @@
 /**
  * Hippo Docs — Custom CSS
- * Primary color: #6d28d9 (Hippo violet)
+ * Primary color: #5C25DA (Hippo violet)
  */
 
 :root {
-  --ifm-color-primary: #6d28d9;
+  --ifm-color-primary: #5C25DA;
   --ifm-color-primary-dark: #6223c3;
   --ifm-color-primary-darker: #5c21b8;
   --ifm-color-primary-darkest: #4c1b97;
@@ -18,7 +18,7 @@
 [data-theme='dark'] {
   --ifm-color-primary: #8b5cf6;
   --ifm-color-primary-dark: #7c3aed;
-  --ifm-color-primary-darker: #6d28d9;
+  --ifm-color-primary-darker: #5C25DA;
   --ifm-color-primary-darkest: #5b21b6;
   --ifm-color-primary-light: #a78bfa;
   --ifm-color-primary-lighter: #c4b5fd;
