@@ -91,7 +91,7 @@ Ensure your plugin has:
 Use the Hippo Developer API to submit your plugin:
 
 ```bash
-curl -X POST https://api.gethippo.ai/v1/plugins/submit \
+curl -X POST https://api.gethippo.ai/api/plugins/submit \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -159,19 +159,7 @@ To update a published plugin:
 1. Increment the version number in `manifest.ts`
 2. Update the `version` in `package.json`
 3. Document changes in a CHANGELOG
-4. Submit the update for review
-
-```bash
-curl -X PUT https://api.gethippo.ai/v1/plugins/your-plugin \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "version": "1.1.0",
-    "description": "Updated description",
-    "tools": [...],
-    "changelog": "Added new feature X, fixed bug Y"
-  }'
-```
+4. Re-submit the plugin with the new version (the old submission must be removed first by an admin)
 
 :::warning Breaking Changes
 If you make breaking changes (remove tools, change parameter names), increment the MAJOR version. Existing users may have automations that depend on your current API.
