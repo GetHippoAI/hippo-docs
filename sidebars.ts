@@ -5,8 +5,24 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: 'Plugin Development',
+      label: 'Frontend Extensions',
       collapsed: false,
+      items: [
+        'plugins/ui/overview',
+        'plugins/ui/quickstart',
+        'plugins/ui/manifest-schema',
+        'plugins/ui/sidebar-pages',
+        'plugins/ui/widgets',
+        'plugins/ui/action-surfaces',
+        'plugins/ui/host-sdk',
+        'plugins/ui/permissions',
+        'plugins/ui/security-model',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'AI Tool Plugins',
+      collapsed: true,
       items: [
         'plugins/getting-started',
         'plugins/anatomy',
