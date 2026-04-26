@@ -5,6 +5,12 @@ title: Getting Started
 
 # Getting Started with Plugin Development
 
+:::note Two plugin systems
+This section covers **AI tool plugins** — server-side handlers that expose new tools to the Hippo assistant. If you want to add **UI surfaces** to the dashboard (sidebar pages, widgets, action menus), see the [Frontend Extensions](./ui/overview) section instead.
+
+A single plugin can ship both — they share one `slug` and one `Plugin` record. AI tool authoring is currently restricted to first-party (Hippo Team) developers.
+:::
+
 This guide walks you through creating your first Hippo plugin using the official scaffolding tool.
 
 ## Prerequisites

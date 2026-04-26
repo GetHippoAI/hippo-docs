@@ -51,6 +51,26 @@ You can extend any combination of these in a single plugin.
 
 A plugin bundle is currently a **single self-contained `index.html`** — the recommended way to produce one is Vite + `vite-plugin-singlefile`. Maximum 25MB. Multi-file zip support is on the roadmap.
 
+## Frontend extensions vs. AI tool plugins
+
+Hippo has two plugin systems that **share the same `Plugin` record** but cover different surfaces:
+
+|  | Frontend extension (this section) | AI tool plugin ([AI Tool Plugins](../getting-started)) |
+| --- | --- | --- |
+| What it adds | Sidebar pages, widgets, action menus, settings UI | New tools the assistant can call ("track this price", "create event") |
+| Where it runs | Sandboxed iframe in the dashboard | Server-side handler in `hippo-ai` |
+| Who can publish | Any developer | Only first-party (Hippo Team) for now |
+| Identified by | `Plugin.manifest.ui.*` | `Plugin.toolSlugs[]` |
+
+A single plugin can do **both** — the official `weather` and `gmail` plugins ship a server-side handler for the assistant *and* (planned) a frontend extension for the dashboard. They share one `slug`, one manifest, one install. From the user's perspective it's one product.
+
+For third-party developers, only the frontend extension path is open today. Server-side AI tool handlers require commits to a private repo and run unsandboxed. Two paths to open this up are on the roadmap:
+
+1. **Declarative tools in the manifest** — `tools: [{ name, description, parameters }]`. When the assistant calls one, the host opens your bundle headlessly and dispatches to a `host.onToolCall(name, input)` hook in your code. You execute via the same RPC channel and return JSON back to the assistant.
+2. **WebAssembly handlers** — Rust / AssemblyScript modules executed in a wasmtime sandbox, similar to Cloudflare Workers, with strict CPU/memory caps.
+
+Until either lands, plan for "UI plugin that talks to the user's existing Hippo data via host RPC" rather than "plugin that teaches the assistant a new skill".
+
 ## Read next
 
 - [**Quickstart**](./quickstart) — submit and install a hello-world plugin in under five minutes.
